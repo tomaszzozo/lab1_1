@@ -39,12 +39,15 @@ public class Money {
             return false;
         }
         Money other = (Money) obj;
-        if (amount == null && other.amount != null) {
-            return false;
+        if (amount == null) {
+            if (other.amount != null) {
+                return false;
+            }
         } else if (!amount.equals(other.amount)) {
             return false;
-        } else if (currency == null && other.currency != null) {
-            return false;
+        }
+        if (currency == null) {
+            return other.currency == null;
         } else return currency.equals(other.currency);
     }
 }

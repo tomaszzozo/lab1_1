@@ -33,12 +33,15 @@ public class Discount {
             return false;
         }
         Discount other = (Discount) obj;
-        if (discountCause == null && other.discountCause != null) {
-            return false;
+        if (discountCause == null) {
+            if (other.discountCause != null) {
+                return false;
+            }
         } else if (!discountCause.equals(other.discountCause)) {
             return false;
-        } else if (discount == null && other.discount != null) {
-            return false;
+        }
+        if (discount == null) {
+            return other.discount == null;
         } else return discount.equals(other.discount);
     }
 }

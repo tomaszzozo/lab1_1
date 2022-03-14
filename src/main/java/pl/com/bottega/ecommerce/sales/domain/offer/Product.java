@@ -55,20 +55,29 @@ public class Product {
             return false;
         }
         Product other = (Product) obj;
-        if (productId == null && other.productId != null) {
-            return false;
+        if (productId == null) {
+            if (other.productId != null) {
+                return false;
+            }
         }  else if (!productId.equals(other.productId)) {
             return false;
-        } else if (productName == null && other.productName != null) {
-            return false;
+        }
+        if (productName == null) {
+            if (other.productName != null) {
+                return false;
+            }
         } else if (!productName.equals(other.productName)) {
             return false;
-        } else if (productPrice == null && other.productPrice != null) {
-            return false;
+        }
+        if (productPrice == null) {
+            if (other.productPrice != null) {
+                return false;
+            }
         } else if (!productPrice.equals(other.productPrice)) {
             return false;
-        } else if (productType == null && other.productType != null) {
-            return false;
+        }
+        if (productType == null) {
+            return other.productType == null;
         } else return productType.equals(other.productType);
     }
 }
