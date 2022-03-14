@@ -16,4 +16,29 @@ public class Discount {
     public String getDiscountCause() {
         return discountCause;
     }
+
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + (discount == null ? 0 : discount.hashCode());
+        return prime * result + (discountCause == null ? 0 : discountCause.hashCode());
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        } else if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
+        Discount other = (Discount) obj;
+        if (discountCause == null && other.discountCause != null) {
+            return false;
+        } else if (!discountCause.equals(other.discountCause)) {
+            return false;
+        } else if (discount == null && other.discount != null) {
+            return false;
+        } else return discount.equals(other.discount);
+    }
 }
