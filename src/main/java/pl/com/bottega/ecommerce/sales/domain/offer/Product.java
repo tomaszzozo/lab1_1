@@ -36,4 +36,41 @@ public class Product {
     public Money getProductPrice() {
         return productPrice;
     }
+
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + (productId == null ? 0 : productId.hashCode());
+        result = prime * result + (productPrice == null ? 0 : productPrice.hashCode());
+        result = prime * result + (productName == null ? 0 : productName.hashCode());
+        return prime * result + (productType == null ? 0 : productType.hashCode());
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        } else if (obj == null) {
+            return false;
+        } else if (getClass() != obj.getClass()) {
+            return false;
+        }
+        Product other = (Product) obj;
+        if (productId == null && other.productId != null) {
+            return false;
+        }  else if (!productId.equals(other.productId)) {
+            return false;
+        } else if (productName == null && other.productName != null) {
+            return false;
+        } else if (!productName.equals(other.productName)) {
+            return false;
+        } else if (productPrice == null && other.productPrice != null) {
+            return false;
+        } else if (!productPrice.equals(other.productPrice)) {
+            return false;
+        } else if (productType == null && other.productType != null) {
+            return false;
+        } else return productType.equals(other.productType);
+    }
 }
